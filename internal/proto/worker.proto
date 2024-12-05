@@ -1,0 +1,17 @@
+syntax = "proto3";
+package worker;
+
+option go_package = "mc/internal/proto";
+
+service WorkerService {
+    rpc RequestWork(RequestWorkRequest) returns (RequestWorkResponse);
+}
+
+message RequestWorkRequest {
+    string workerID = 1;
+}
+
+message RequestWorkResponse {
+    string goal = 1;
+    string workflowID = 2;
+}
